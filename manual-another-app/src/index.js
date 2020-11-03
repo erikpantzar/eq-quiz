@@ -1,13 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from "react"
+import ReactDOM from "react-dom"
+import App from "./App.js"
+import { ReactQueryDevtools } from "react-query-devtools"
 
-const App = () => {
-  return (
-    <div>
-      <h1>This is react</h1>
-    </div>
-  );
-};
-
-const wrapper = document.getElementById("app");
-wrapper ? ReactDOM.render(<App />, wrapper) : false;
+ReactDOM.render(
+  <>
+    <ReactQueryDevtools />
+    <App />
+  </>,
+  document.getElementById("root")
+)

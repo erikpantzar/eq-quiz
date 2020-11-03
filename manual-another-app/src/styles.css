@@ -1,0 +1,21 @@
+body {
+  background: #444;
+  color:#fff;
+}
+
+button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #000;
+  border: 1px solid #000;
+  display: inline-block;
+  margin: 0 5px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: palevioletred;
+  color: palevioletred;
+}
