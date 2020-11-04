@@ -22,6 +22,9 @@ export default () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswer] = useState([])
 
+  const [bonusTime, setBonusTime] = useState(false)
+  const [bonus5050, setBonus5050] = useState(false)
+
   const handleAnswer = (index, answer) => {
     setAnswer([
       ...answers.slice(0, index),
@@ -41,6 +44,8 @@ export default () => {
     queryCache.invalidateQueries("questions")
     setRoute(2)
     setCurrentQuestion(0)
+    setBonus5050(false)
+    setBonusTime(false)
   }
 
   return (
@@ -50,7 +55,14 @@ export default () => {
       )}
 
       {route === 1 && (
-        <Question currentQuestion={currentQuestion} onAnswer={handleAnswer} />
+        <Question 
+          currentQuestion={currentQuestion} 
+          onAnswer={handleAnswer} 
+          bonus5050={bonus5050}  
+          setBonusTime={setBonusTime}
+          setBonus5050={setBonus5050}
+          bonusTime={bonusTime}
+        />
       )}
 
       {route === 2 && (

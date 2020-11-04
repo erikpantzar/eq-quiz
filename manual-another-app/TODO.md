@@ -10,10 +10,10 @@
 - 15s to answer each question
 - present remaining time
 - lifelines: onetime use
-     a. 50/50
-     b. +10s
+    - a. 50/50
+    - b. +10s
 - summary:
- a. sum of total incorrect qa
- b. unaswered qa
- c. (bonus) time consumed
+ 1. sum of total incorrect qa
+ 2. unaswered qa
+ 3. (bonus) time consumed
 - unit test "testing critical logic"

@@ -6,11 +6,10 @@ export default ({ answers, restart }) => {
   )
   const correctAnswers = answers.filter((answer) => answer.correct === true)
 
-  console.log(answers)
-
   return (
     <div>
       <h1>Summary</h1>
+      
       <p>
         {correctAnswers.length}/{answers.length} Correct answers
       </p>
