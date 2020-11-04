@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import { useQuery } from "react-query"
 import useInterval from "../helpers/useInterval"
-
+import Count from "./Count"
 
 export default ({ 
   currentQuestion, 
@@ -48,18 +48,19 @@ export default ({
     setBonus5050(true)
   }
 
-  return (
-    <div>    
-      <h2>
-        {
-          new DOMParser().parseFromString(question.question, "text/html")
+
+  const questionText = new DOMParser().parseFromString(question.question, "text/html")
             .documentElement.textContent
-        }
-      </h2>
+
+  return (
+    <article>    
+      <h1>{questionText}</h1>
 
       {timeleft === 0 && (
         <div>
+        <h2>
           Too slow
+          </h2>
           <button
             onClick={() => {
               onAnswer(currentQuestion, {
@@ -89,14 +90,7 @@ export default ({
           </button>
         ))}
 
-      {timeleft > 0 && (
-        <div>
-          <div style={{ fontSize: `${timeleft / 1000}rem` }}>
-            {timeleft / 1000}
-          </div>
-          remaining...
-        </div>
-      )}
+      {timeleft > 0 && <Count time={timeleft / 1000} />}
 
 
       {timeleft > 0 && (
@@ -104,9 +98,8 @@ export default ({
         {!bonus5050 && (<button onClick={() => use5050() }>50/50</button>)}
       {!bonusTime && (<button onClick={() => useExtraTime() }>+10s</button>)}
       </section>
-      )} 
-
+      )}  
       
-    </div>
+    </article>
   )
 }
